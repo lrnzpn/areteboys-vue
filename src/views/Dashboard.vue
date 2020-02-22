@@ -25,7 +25,7 @@
         <div class="viz-container">
           <div>
             <h5 class="viz-item">Interactive map</h5>
-            <div>map here</div>
+<MapLeaf />
           </div>
           <div>
             <h5 class="viz-item">Data tested</h5>
@@ -49,6 +49,7 @@
 
 <script>
 import Form from '../components/Form.vue'
+import Map from '../components/Map.vue'
 export default {
   data() {
     return {
@@ -61,6 +62,7 @@ export default {
 
   components: {
     Form,
+    MapLeaf: Map,
   }
 };
 </script>
