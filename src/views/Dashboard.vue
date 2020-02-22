@@ -37,13 +37,13 @@
             </div>
           </div>
         </div>
-        <div class="viz-container">
+        <div class="viz-container viz-container-2">
           <div>
             <h5 class="viz-item">Tests</h5>
             <div>chart here</div>
           </div>
           <div>
-            <h5 class="viz-item">Something</h5>
+            <h5 class="viz-item>">Something</h5>
             <div>chart here</div>
           </div>
         </div>
@@ -64,6 +64,7 @@ export default {
       inProgress: 0,
       relevantSamples: 0,
       irrelevantSamples: 0,
+      top5artifacts: ['test','test','test','test','test']
     };
   },
 
@@ -78,15 +79,32 @@ export default {
     methods: {
       fillData () {
         this.datacollection = {
-          labels: [this.getRandomInt(), this.getRandomInt()],
+          // labels: [this.getRandomInt(), this.getRandomInt()],
+          labels: ['Top 5 artifacts'],
           // labels: ['test label 1', 'test label 2'],
           datasets: [
             {
-              label: 'Data One',
+              label: this.top5artifacts[0],
               backgroundColor: '#f87979',
               data: [this.getRandomInt(), this.getRandomInt()]
-            }, {
-              label: 'Data One',
+            }, 
+            {
+              label: this.top5artifacts[1],
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            },
+            {
+              label: this.top5artifacts[2],
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            },
+            {
+              label: this.top5artifacts[3],
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            },
+            {
+              label: this.top5artifacts[4],
               backgroundColor: '#f87979',
               data: [this.getRandomInt(), this.getRandomInt()]
             }
@@ -115,6 +133,7 @@ h5 {
   font-family: "Source Sans Pro";
   margin-left: 17vw;
   width: 85vw;
+  margin-top: 40px;
 }
 #statistics {
   margin: 0 auto;
@@ -159,5 +178,9 @@ h5 {
     max-width: 100%;
     padding-top: 40px;
     /* margin:  150px auto; */
+  }
+
+  .viz-container-2{
+    margin-top: 50px;
   }
 </style>
