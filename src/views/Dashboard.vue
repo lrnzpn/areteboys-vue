@@ -80,16 +80,16 @@ h5 {
 }
 #dashboard {
   font-family: "Source Sans Pro";
-  margin-left: 20vw;
-  width: 80vw;
+  margin-left: 17vw;
+  width: 85vw;
 }
 #statistics {
   margin: 0 auto;
 }
 #stats-container {
   display: flex;
-  justify-content: space-between;
-  width: 70vw;
+  justify-content: space-around;
+  width: 75vw;
   margin: 0 auto;
   padding-top: 20px;
   flex-direction: row;
@@ -109,15 +109,17 @@ h5 {
 }
 
 #viz {
-  width: 80vw;
+  width: 85vw;
 }
 
 .viz-container {
-  width: 70vw;
+  width: 75vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 0 auto;
   height: 75vh;
   font-size: 27.79px;
+  padding-right: 20vh;
+  /* padding-top: 10vh; */
 }
 </style>

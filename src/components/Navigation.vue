@@ -30,7 +30,7 @@ export default {};
   background-color: $main-secondary;
   position: fixed;
   z-index: 99;
-  width: 20vw;
+  width: 15vw;
   height: 100vh;
 }
 

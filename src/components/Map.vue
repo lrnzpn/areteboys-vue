@@ -1,12 +1,14 @@
 <template>
 
   <div style="height: 70vh; width: 30vw">
-    <div style="height: 200px overflow: auto;">
+    <!-- <div style="height: 200px overflow: auto;"> -->
       <!-- <p>First marker is placed at {{ withPopup.lat }}, {{ withPopup.lng }}</p>
       <p>Center is at {{ currentCenter }} and the zoom is: {{ currentZoom }}</p> -->
       <!-- <button @click="showLongText">Toggle long popup</button> -->
-      <button @click="showMap = !showMap">Toggle map</button>
-    </div>
+      <div id="button-div">
+          <b-button @click="showMap = !showMap" id="map-button" size="sm">Toggle map</b-button>
+      </div>
+    <!-- </div> -->
     <l-map
       v-if="showMap"
       :zoom="zoom"
@@ -15,6 +17,7 @@
       style="height: 80%"
       @update:center="centerUpdate"
       @update:zoom="zoomUpdate"
+      id="map"
     >
       <l-tile-layer
         :url="url"
@@ -68,14 +71,14 @@ export default {
   data() {
     return {
       zoom: 13,
-      center: latLng(47.41322, -1.219482),
+      center: latLng(17.0663, 121.0335),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      withPopup: latLng(47.41322, -1.219482),
-      withTooltip: latLng(47.41422, -1.250482),
-      currentZoom: 11.5,
-      currentCenter: latLng(47.41322, -1.219482),
+      withPopup: latLng(17.0663, 121.0335),
+      withTooltip:latLng(17.0663, 121.0335),
+      currentZoom: 20.5,
+      currentCenter: latLng(17.0663, 121.0335),
       showParagraph: false,
       mapOptions: {
         zoomSnap: 0.5
@@ -99,3 +102,10 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+
+#map-button{
+    margin: 20px;
+}
+</style>
