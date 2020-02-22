@@ -25,7 +25,7 @@
         <div class="viz-container">
           <div>
             <h5 class="viz-item">Interactive map</h5>
-<MapLeaf />
+            <MapLeaf />
           </div>
           <div>
             <h5 class="viz-item">Data tested</h5>
@@ -43,26 +43,73 @@
           </div>
         </div>
       </div>
+      <div id="table">
+        <h1>Raw Data</h1>
+        <button @click="openInputForm">Add Data</button>
+        <Form style="display:none;" formType="inputData" title="Input" v-on:postData="postForm" />
+
+        <div class="table">
+          <b-table striped hover :items="tableData"></b-table>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Form from '../components/Form.vue'
-import Map from '../components/Map.vue'
+import Form from "../components/Form.vue";
+import Map from "../components/Map.vue";
+import axios from "axios";
+
 export default {
   data() {
     return {
       samplesSubmitted: 0,
       inProgress: 0,
       relevantSamples: 0,
-      irrelevantSamples: 0
+      irrelevantSamples: 0,
+      tableData: [
+        {
+          // id date city province count(artifact) image description
+          location: "Manila",
+          city: "QC",
+          province: "QC",
+          date: "6/9/69",
+          imgFile: "",
+          description: "lorem ipsum blablabla"
+        }
+      ],
+      samples: []
     };
   },
-
   components: {
-    Form,
-    MapLeaf: Map,
+    Form: Form,
+    MapLeaf: Map
+  },
+  methods: {
+    openInputForm() {
+      document.getElementById("form-wrapper").style.display = "flex";
+    },
+    postForm(value) {
+      this.tableData = [...this.tableData, value];
+      console.log(this.tableData);
+    }
+  },
+  mounted() {
+    const config = {
+      headers: {
+        Accept: "application/json"
+      }
+    };
+    axios
+      .get("http://0.0.0.0:8000/samples/api/samples/", config)
+      .then(res => {
+        this.samples = res.data;
+        console.log(this.samples);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>
@@ -78,6 +125,7 @@ h1 {
 h5 {
   color: #5aa8c8;
 }
+
 #dashboard {
   font-family: "Source Sans Pro";
   margin-left: 17vw;
@@ -121,5 +169,11 @@ h5 {
   font-size: 27.79px;
   padding-right: 20vh;
   /* padding-top: 10vh; */
+}
+
+.table {
+  width: 75vw;
+  border: 2px solid #5aa8c8;
+  margin: 0 auto;
 }
 </style>
