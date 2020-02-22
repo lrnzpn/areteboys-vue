@@ -21,6 +21,9 @@
         </div>
       </div>
     </div>
+    <div id="viz">
+
+    </div>
   </div>
 </template>
 
@@ -50,8 +53,9 @@ h5{
 }
 #dashboard {
   font-family: "Source Sans Pro";
-  margin-left: 200px;
-  width: 100%;
+  margin-left: 20vw;
+  width: 80vw;
+
 }
 #statistics {
   margin: 0 auto;
@@ -59,7 +63,9 @@ h5{
 #stats-container {
   display: flex;
   justify-content: space-between;
-  width: 80vw;
+  width: 60vw;
+  margin: 0 auto;
+  padding-top: 20px;
   flex-direction: row;
 }
 

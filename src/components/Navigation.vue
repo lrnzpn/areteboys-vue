@@ -30,7 +30,7 @@ export default {};
   background-color: #ccc;
   position: fixed;
   z-index: 99;
-  width: 200px;
+  width: 20vw;
   height: 100vh;
 }
 
