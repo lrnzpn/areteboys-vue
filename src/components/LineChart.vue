@@ -15,6 +15,16 @@ export default {
   //           }]
   //       }
   //   }
+  options: {
+    return {
+    fill: false,
+    backgroundColor: 'rgba(0, 0, 0, 0.0)',
+    legend: {
+    display: false,
+    }
+
+}
+  }
   },
   extends: Line,
   mixins: [reactiveProp],
@@ -23,10 +33,10 @@ export default {
       type: Object,
       default: null
     },
-    options: {
-      type: Object,
-      default: null
-    },
+    // options: {
+    //   type: Object,
+    //   default: null
+    // },
   },
   mounted () {
     this.renderChart(this.chartData, this.options)

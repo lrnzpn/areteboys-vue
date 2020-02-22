@@ -130,7 +130,8 @@ export default {
 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September','October','November','December'],
           datasets: [
             {
-              backgroundColor: '#f87979',
+              label: '',
+              backgroundColor: 'rgba(0, 0, 0, 0.0)',
               data: [
                 {x:this.months[0], y:this.getRandomInt()},
                 {x:this.months[1], y:this.getRandomInt()},
