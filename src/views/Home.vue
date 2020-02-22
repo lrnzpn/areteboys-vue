@@ -1,11 +1,15 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <dashboard />
   </div>
 </template>
 
 <script>
+import Dashboard from '../views/Dashboard'
 export default {
-  name: "Home"
+  name: "Home",
+  components: {
+    Dashboard
+  }
 };
 </script>
