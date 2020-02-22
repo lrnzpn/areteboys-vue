@@ -46,7 +46,7 @@ h5{
 }
 
 h1{
-  color: #01161E;
+  color: $main-blue;
 }
 h5{
   color: #5AA8C8;

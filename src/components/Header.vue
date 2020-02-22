@@ -3,7 +3,7 @@
     <div class="center-wrapper">
       <div class="logo-container">
         <div class="logo-wrapper">
-          <img src="../assets/icons/ab.png" alt="AB" />
+          <img src="../assets/icons/logo.svg" alt="AB" />
           <span>AB Research Management System</span>
         </div>
       </div>

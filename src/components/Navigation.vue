@@ -2,19 +2,19 @@
   <div id="sidenav">
     <div class="nav-menu">
       <router-link to="/">
-        <img src="../assets/icons/dashboard.png" alt="" />
+        <img src="../assets/icons/dashboard.svg" alt="" />
         <span>Dashboard</span>
       </router-link>
       <router-link to="/settings">
-        <img src="../assets/icons/settings.png" alt="" />
+        <img src="../assets/icons/settings.svg" alt="" />
         <span>Settings</span>
       </router-link>
       <router-link to="/import">
-        <img src="../assets/icons/input.png" alt="" />
+        <img src="../assets/icons/input-1.svg" alt="" />
         <span>Import</span>
       </router-link>
       <router-link to="/">
-        <img src="../assets/icons/logout.png" alt="" />
+        <img src="../assets/icons/logout.svg" alt="" />
         <span>Log out</span>
       </router-link>
     </div>
@@ -27,7 +27,7 @@ export default {};
 
 <style lang="scss" scoped>
 #sidenav {
-  background-color: #ccc;
+  background-color: $main-secondary;
   position: fixed;
   z-index: 99;
   width: 20vw;
@@ -36,6 +36,10 @@ export default {};
 
 .router-link-exact-active {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+img{
+  padding-right: 10px
 }
 
 .nav-menu {
