@@ -40,7 +40,11 @@
         <div class="viz-container viz-container-2">
           <div>
             <h5 class="viz-item">Tests</h5>
-            <div>chart here</div>
+            <div>
+              <line-chart>
+
+              </line-chart>
+              </div>
           </div>
           <div>
             <h5 class="viz-item>">Something</h5>
@@ -56,6 +60,7 @@
 import Form from '../components/Form.vue'
 import Map from '../components/Map.vue'
 import BarChart from '../components/BarChart.vue'
+import LineChart from '../components/LineChart.vue'
 export default {
   data() {
     return {
@@ -64,7 +69,7 @@ export default {
       inProgress: 0,
       relevantSamples: 0,
       irrelevantSamples: 0,
-      top5artifacts: ['test','test','test','test','test']
+      top5artifacts: ['test','test','test','test','test'],
     };
   },
 
@@ -72,6 +77,7 @@ export default {
     Form,
     MapLeaf: Map,
     BarChart,
+    LineChart
   },
       mounted () {
       this.fillData()
@@ -163,16 +169,18 @@ h5 {
 #viz {
   width: 85vw;
   overflow: visible;
+  padding-top: 40px;
 }
 
 .viz-container {
-  width: 75vw;
+  width: 80vw;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
   height: 75vh;
   font-size: 27.79px;
   padding-right: 20vh;
+  padding-top: 40px;
 }
  .chart1 {
     max-width: 100%;
