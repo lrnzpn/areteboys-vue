@@ -34,10 +34,6 @@ export default {};
   height: 100vh;
 }
 
-.router-link-exact-active {
-  /* background-color: rgba(0, 0, 0, 0.5); */
-}
-
 img {
   padding-right: 10px;
 }
