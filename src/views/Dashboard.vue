@@ -21,6 +21,7 @@
         </div>
       </div>
       <div id="viz">
+      <h1>Visualization tools</h1>
         <div class="viz-container">
           <div><h5 class="viz-item">Interactive map</h5>
           <div>map here</div>
@@ -68,7 +69,7 @@ h5{
 }
 
 h1{
-  color: $main-blue;
+  color: $dashboard-heading
 }
 h5{
   color: #5AA8C8;
