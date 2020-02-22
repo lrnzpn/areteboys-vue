@@ -29,7 +29,7 @@
           </div>
           <div>
             <h5 class="viz-item">Data tested</h5>
-            <div>
+            <div class="small">
               <!-- <line-chart :chartdata='dummyData' options=''></line-chart> -->
               <line-chart :chart-data="datacollection">
               </line-chart>
@@ -64,13 +64,15 @@ export default {
       inProgress: 0,
       relevantSamples: 0,
       irrelevantSamples: 0,
-      
-    data () {
-      return {
-        datacollection: null
-      }
-    },
-    mounted () {
+    };
+  },
+
+  components: {
+    Form,
+    MapLeaf: Map,
+    LineChart,
+  },
+      mounted () {
       this.fillData()
     },
     methods: {
@@ -95,14 +97,6 @@ export default {
         return Math.floor(Math.random() * (50 - 5 + 1)) + 5
       }
     }
-    };
-  },
-
-  components: {
-    Form,
-    MapLeaf: Map,
-    LineChart,
-  }
 };
 </script>
 
@@ -161,4 +155,8 @@ h5 {
   font-size: 27.79px;
   padding-right: 20vh;
 }
+ .small {
+    max-width: 600px;
+    margin:  150px auto;
+  }
 </style>
