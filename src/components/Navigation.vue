@@ -1,29 +1,21 @@
 <template>
   <div id="sidenav">
     <div class="nav-menu">
-      <router-link to="/">
-        <div class="nav-link">
-          <img src="../assets/icons/dashboard.png" alt="" />
-          <span>Dashboard</span>
-        </div>
+      <router-link to="/" class="sidebar-item">
+        <img src="../assets/icons/dashboard.svg" alt="" />
+        <span>Dashboard</span>
       </router-link>
-      <router-link to="/settings">
-        <div class="nav-link">
-          <img src="../assets/icons/settings.png" alt="" />
-          <span>Settings</span>
-        </div>
+      <router-link to="/settings" class="sidebar-item">
+        <img src="../assets/icons/settings.svg" alt="" />
+        <span>Settings</span>
       </router-link>
-      <router-link to="/import">
-        <div class="nav-link">
-          <img src="../assets/icons/input.png" alt="" />
-          <span>Import</span>
-        </div>
+      <router-link to="/import" class="sidebar-item">
+        <img src="../assets/icons/input-1.svg" alt="" />
+        <span>Import</span>
       </router-link>
-      <router-link to="/">
-        <div class="nav-link">
-          <img src="../assets/icons/logout.png" alt="" />
-          <span>Log out</span>
-        </div>
+      <router-link to="/" class="sidebar-item">
+        <img src="../assets/icons/logout.svg" alt="" />
+        <span>Log out</span>
       </router-link>
     </div>
   </div>
@@ -35,15 +27,23 @@ export default {};
 
 <style lang="scss" scoped>
 #sidenav {
-  background-color: #ccc;
+  background-color: $main-secondary;
   position: fixed;
   z-index: 99;
-  width: 200px;
+  width: 20vw;
   height: 100vh;
 }
 
 .router-link-exact-active {
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+img {
+  padding-right: 10px;
+}
+
+.sidebar-item:hover {
+  background-color: #213f4a;
 }
 
 .nav-menu {
