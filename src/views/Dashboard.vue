@@ -31,7 +31,7 @@
             <h5 class="viz-item">Data tested</h5>
             <div class="chart1">
               <!-- <bar-chart :chartdata='dummyData' options=''></bar-chart> -->
-              <bar-chart :chart-data="datacollection">
+              <bar-chart :chart-data="datacollection1">
               </bar-chart>
               <!-- <button @click="fillData()">Randomize</button> -->
             </div>
@@ -40,8 +40,8 @@
         <div class="viz-container viz-container-2">
           <div>
             <h5 class="viz-item">Tests</h5>
-            <div>
-              <line-chart>
+            <div class="chart2">
+              <line-chart :chart-data="datacollection2">
 
               </line-chart>
               </div>
@@ -64,12 +64,13 @@ import LineChart from '../components/LineChart.vue'
 export default {
   data() {
     return {
-      datacollection: null,
+      datacollection1: null,
       samplesSubmitted: 0,
       inProgress: 0,
       relevantSamples: 0,
       irrelevantSamples: 0,
       top5artifacts: ['test','test','test','test','test'],
+      years: ['1980', '1981', '1982', '1983', '1984','1985','1986','1987']
     };
   },
 
@@ -84,33 +85,64 @@ export default {
     },
     methods: {
       fillData () {
-        this.datacollection = {
+        this.datacollection1 = {
           // labels: [this.getRandomInt(), this.getRandomInt()],
           labels: ['Top 5 artifacts'],
-          // labels: ['test label 1', 'test label 2'],
           datasets: [
             {
               label: this.top5artifacts[0],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [this.getRandomInt()]
             }, 
             {
               label: this.top5artifacts[1],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [this.getRandomInt()]
             },
             {
               label: this.top5artifacts[2],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [this.getRandomInt()]
             },
             {
               label: this.top5artifacts[3],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [this.getRandomInt()]
             },
             {
               label: this.top5artifacts[4],
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt()]
+            }
+          ]
+        }
+
+          this.datacollection2 = {
+          // labels: [this.getRandomInt(), this.getRandomInt()],
+          labels: ['Time series of artifact collection'],
+          datasets: [
+            {
+              label: this.years[0],
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            }, 
+            {
+              label: this.years[1],
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            },
+            {
+              label: this.years[2],
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            },
+            {
+              label: this.years[3],
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            },
+            {
+              label: this.years[4],
               backgroundColor: '#f87979',
               data: [this.getRandomInt(), this.getRandomInt()]
             }
@@ -182,7 +214,7 @@ h5 {
   padding-right: 20vh;
   padding-top: 40px;
 }
- .chart1 {
+ .chart1, .chart2 {
     max-width: 100%;
     padding-top: 40px;
     /* margin:  150px auto; */
