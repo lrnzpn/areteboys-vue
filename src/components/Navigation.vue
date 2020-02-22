@@ -1,19 +1,19 @@
 <template>
   <div id="sidenav">
     <div class="nav-menu">
-      <router-link to="/">
+      <router-link to="/" class="sidebar-item">
         <img src="../assets/icons/dashboard.svg" alt="" />
         <span>Dashboard</span>
       </router-link>
-      <router-link to="/settings">
+      <router-link to="/settings" class="sidebar-item">
         <img src="../assets/icons/settings.svg" alt="" />
         <span>Settings</span>
       </router-link>
-      <router-link to="/import">
+      <router-link to="/import" class="sidebar-item">
         <img src="../assets/icons/input-1.svg" alt="" />
         <span>Import</span>
       </router-link>
-      <router-link to="/">
+      <router-link to="/" class="sidebar-item">
         <img src="../assets/icons/logout.svg" alt="" />
         <span>Log out</span>
       </router-link>
@@ -35,11 +35,16 @@ export default {};
 }
 
 .router-link-exact-active {
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+
 }
 
 img{
   padding-right: 10px
+}
+
+.sidebar-item:hover{
+  background-color: #213F4A;
 }
 
 .nav-menu {

@@ -63,7 +63,7 @@ h5{
 #stats-container {
   display: flex;
   justify-content: space-between;
-  width: 60vw;
+  width: 70vw;
   margin: 0 auto;
   padding-top: 20px;
   flex-direction: row;
