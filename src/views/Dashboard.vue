@@ -29,7 +29,12 @@
           </div>
           <div>
             <h5 class="viz-item">Data tested</h5>
-            <div>chart here</div>
+            <div>
+              <!-- <line-chart :chartdata='dummyData' options=''></line-chart> -->
+              <line-chart :chart-data="datacollection">
+              </line-chart>
+              <button @click="fillData()">Randomize</button>
+            </div>
           </div>
         </div>
         <div class="viz-container">
@@ -50,19 +55,53 @@
 <script>
 import Form from '../components/Form.vue'
 import Map from '../components/Map.vue'
+import LineChart from '../components/BarChart.vue'
 export default {
   data() {
     return {
+      datacollection: null,
       samplesSubmitted: 0,
       inProgress: 0,
       relevantSamples: 0,
-      irrelevantSamples: 0
+      irrelevantSamples: 0,
+      
+    data () {
+      return {
+        datacollection: null
+      }
+    },
+    mounted () {
+      this.fillData()
+    },
+    methods: {
+      fillData () {
+        this.datacollection = {
+          labels: [this.getRandomInt(), this.getRandomInt()],
+          // labels: ['test label 1', 'test label 2'],
+          datasets: [
+            {
+              label: 'Data One',
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            }, {
+              label: 'Data One',
+              backgroundColor: '#f87979',
+              data: [this.getRandomInt(), this.getRandomInt()]
+            }
+          ]
+        }
+      },
+      getRandomInt () {
+        return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+      }
+    }
     };
   },
 
   components: {
     Form,
     MapLeaf: Map,
+    LineChart,
   }
 };
 </script>
@@ -110,6 +149,7 @@ h5 {
 
 #viz {
   width: 85vw;
+  overflow: visible;
 }
 
 .viz-container {
@@ -120,6 +160,5 @@ h5 {
   height: 75vh;
   font-size: 27.79px;
   padding-right: 20vh;
-  /* padding-top: 10vh; */
 }
 </style>
