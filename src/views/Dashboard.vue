@@ -41,8 +41,17 @@ export default {
 h5{
   margin: 0;
 }
+
+h1{
+  color: #01161E;
+}
+h5{
+  color: #5AA8C8;
+}
 #dashboard {
   font-family: "Source Sans Pro";
+  margin-left: 200px;
+  width: 100%;
 }
 #statistics {
   margin: 0 auto;
