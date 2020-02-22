@@ -74,7 +74,7 @@ export default {
       relevantSamples: 0,
       irrelevantSamples: 0,
       top5artifacts: ['test','test','test','test','test'],
-      years: [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987],
+      months: [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987],
     };
   },
 
@@ -127,36 +127,27 @@ export default {
 
           this.datacollection2 = {
           // labels: [this.getRandomInt(), this.getRandomInt()],
-          labels: ['Time series of artifact collection'],
+labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September','October','November','December'],
           datasets: [
             {
-              label: this.years[0],
               backgroundColor: '#f87979',
               data: [
-                {x:1980, y:this.getRandomInt()}]
+                {x:this.months[0], y:this.getRandomInt()},
+                {x:this.months[1], y:this.getRandomInt()},
+                {x:this.months[2], y:this.getRandomInt()},
+                {x:this.months[3], y:this.getRandomInt()},
+                {x:this.months[4], y:this.getRandomInt()},
+                {x:this.months[5], y:this.getRandomInt()},
+                {x:this.months[6], y:this.getRandomInt()},
+                {x:this.months[7], y:this.getRandomInt()},
+                {x:this.months[8], y:this.getRandomInt()},
+                {x:this.months[9], y:this.getRandomInt()},
+                {x:this.months[10], y:this.getRandomInt()},
+                {x:this.months[11], y:this.getRandomInt()},
+
+                ]
+
             }, 
-            {
-              label: this.years[1],
-              backgroundColor: '#f87979',
-              data: [{x:this.years[1], y:this.getRandomInt()}]
-            },
-            {
-              label: this.years[2],
-              backgroundColor: '#f87979',
-              data: [{x:this.years[2], y:this.getRandomInt()}]
-
-            },
-            {
-              label: this.years[3],
-              backgroundColor: '#f87979',
-              data: [{x:this.years[3], y:this.getRandomInt()}]
-
-            },
-            {
-              label: this.years[4],
-              backgroundColor: '#f87979',
-              data: [{x:this.years[4], y:this.getRandomInt()}]
-            }
           ]
         }
 
