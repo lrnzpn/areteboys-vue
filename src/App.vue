@@ -10,6 +10,13 @@
 <script>
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
+import Vue from 'vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 
 export default {
   components: {

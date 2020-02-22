@@ -64,7 +64,7 @@ img{
     margin-bottom: 20px;
     padding: 0.75em;
     border-radius: 10px;
-  }
+    }
 
   img {
     height: 1.5em;
