@@ -44,10 +44,6 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-    <div id="viz"></div>
-=======
->>>>>>> feature/form-component
   </div>
 </template>
 
