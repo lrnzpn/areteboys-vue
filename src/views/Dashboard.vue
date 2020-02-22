@@ -61,16 +61,20 @@ import Form from '../components/Form.vue'
 import Map from '../components/Map.vue'
 import BarChart from '../components/BarChart.vue'
 import LineChart from '../components/LineChart.vue'
+import moment from 'moment'
+
+import 'moment'
 export default {
   data() {
     return {
       datacollection1: null,
+      datacollection2: null,
       samplesSubmitted: 0,
       inProgress: 0,
       relevantSamples: 0,
       irrelevantSamples: 0,
       top5artifacts: ['test','test','test','test','test'],
-      years: ['1980', '1981', '1982', '1983', '1984','1985','1986','1987']
+      years: [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987],
     };
   },
 
@@ -84,6 +88,10 @@ export default {
       this.fillData()
     },
     methods: {
+        // add(event){
+        //     let current = moment()                  
+        // },
+  
       fillData () {
         this.datacollection1 = {
           // labels: [this.getRandomInt(), this.getRandomInt()],
@@ -124,30 +132,46 @@ export default {
             {
               label: this.years[0],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [
+                {x:1980, y:this.getRandomInt()}]
             }, 
             {
               label: this.years[1],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [{x:this.years[1], y:this.getRandomInt()}]
             },
             {
               label: this.years[2],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [{x:this.years[2], y:this.getRandomInt()}]
+
             },
             {
               label: this.years[3],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [{x:this.years[3], y:this.getRandomInt()}]
+
             },
             {
               label: this.years[4],
               backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
+              data: [{x:this.years[4], y:this.getRandomInt()}]
             }
           ]
         }
+
+//         this.datacollection2 = {
+//           datasets: [{
+
+//           data:[
+//             {x: 1980,
+//             y: 50},]},
+
+// {data:
+//             [{x: 1983, 
+//             y: 69}]}
+//           ]
+//         }
       },
       getRandomInt () {
         return Math.floor(Math.random() * (50 - 5 + 1)) + 5
@@ -217,7 +241,7 @@ h5 {
  .chart1, .chart2 {
     max-width: 100%;
     padding-top: 40px;
-    /* margin:  150px auto; */
+    /* margin:  0 auto; */
   }
 
   .viz-container-2{
