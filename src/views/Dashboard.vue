@@ -44,11 +44,15 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <div id="viz"></div>
+=======
+>>>>>>> feature/form-component
   </div>
 </template>
 
 <script>
+import Form from '../components/Form.vue'
 export default {
   data() {
     return {
@@ -57,6 +61,10 @@ export default {
       relevantSamples: 0,
       irrelevantSamples: 0
     };
+  },
+
+  components: {
+    Form,
   }
 };
 </script>

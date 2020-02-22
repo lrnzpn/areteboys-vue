@@ -55,6 +55,7 @@ img {
     width: 100%;
     margin-bottom: 20px;
     border-radius: 10px;
+<<<<<<< HEAD
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.5);
@@ -67,6 +68,9 @@ img {
       margin: 0.5em 1em;
     }
   }
+=======
+    }
+>>>>>>> feature/form-component
 
   img {
     height: 1.5em;
