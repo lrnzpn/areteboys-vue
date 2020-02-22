@@ -29,11 +29,11 @@
           </div>
           <div>
             <h5 class="viz-item">Data tested</h5>
-            <div class="small">
-              <!-- <line-chart :chartdata='dummyData' options=''></line-chart> -->
-              <line-chart :chart-data="datacollection">
-              </line-chart>
-              <button @click="fillData()">Randomize</button>
+            <div class="chart1">
+              <!-- <bar-chart :chartdata='dummyData' options=''></bar-chart> -->
+              <bar-chart :chart-data="datacollection">
+              </bar-chart>
+              <!-- <button @click="fillData()">Randomize</button> -->
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
 <script>
 import Form from '../components/Form.vue'
 import Map from '../components/Map.vue'
-import LineChart from '../components/BarChart.vue'
+import BarChart from '../components/BarChart.vue'
 export default {
   data() {
     return {
@@ -70,7 +70,7 @@ export default {
   components: {
     Form,
     MapLeaf: Map,
-    LineChart,
+    BarChart,
   },
       mounted () {
       this.fillData()
@@ -155,8 +155,9 @@ h5 {
   font-size: 27.79px;
   padding-right: 20vh;
 }
- .small {
-    max-width: 600px;
-    margin:  150px auto;
+ .chart1 {
+    max-width: 100%;
+    padding-top: 40px;
+    /* margin:  150px auto; */
   }
 </style>
