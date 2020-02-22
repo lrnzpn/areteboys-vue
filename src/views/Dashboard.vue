@@ -20,6 +20,28 @@
           <h5 class="stat-val">{{irrelevantSamples}}</h5>
         </div>
       </div>
+      <div id="viz">
+        <div class="viz-container">
+          <div><h5 class="viz-item">Interactive map</h5>
+          <div>map here</div>
+          </div>
+          <div>
+            <h5 class="viz-item">Data tested</h5>
+            <div>chart here</div>
+          </div>
+        </div>
+        <div class="viz-container">
+          <div>
+            <h5 class="viz-item">Tests</h5>
+            <div>chart here</div>
+
+          </div>
+          <div>
+            <h5 class="viz-item">Something</h5>
+            <div>chart here</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="viz">
 
@@ -67,6 +89,7 @@ h5{
   margin: 0 auto;
   padding-top: 20px;
   flex-direction: row;
+  height: 25vh;
 }
 
 .stat{
@@ -80,5 +103,19 @@ h5{
 
 .stat-val {
   font-size: 43.29px;
+}
+
+#viz{
+  width: 80vw;
+
+}
+
+.viz-container{
+  width: 70vw;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  height: 75vh;
+  font-size: 27.79px;
 }
 </style>
