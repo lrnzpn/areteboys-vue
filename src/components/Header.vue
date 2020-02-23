@@ -19,7 +19,7 @@ export default {};
 #header {
   background-color: $black;
   position: fixed;
-  z-index: 999;
+  z-index: 1001;
   width: 100%;
   .logo-container {
     width: inherit;
