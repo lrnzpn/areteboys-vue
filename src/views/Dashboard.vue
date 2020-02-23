@@ -22,22 +22,11 @@
       </div>
       <div id="viz">
         <h1>Visualization tools</h1>
-        <div class="viz-container">
-          <div>
-            <h5 class="viz-item">Interactive map</h5>
-<MapLeaf />
+        <div class="viz-container viz-container-1">
+            <div><h5>Interactive map</h5>
+            <MapLeaf /></div>
 <!-- <iframe src="../Quick-Start-Leaflet-2.html" width="400" height="400"></iframe> -->
 <!-- <my-map /> -->
-          </div>
-          <div>
-            <h5 class="viz-item">Data tested</h5>
-            <div class="chart1">
-              <!-- <bar-chart :chartdata='dummyData' options=''></bar-chart> -->
-              <bar-chart :chart-data="datacollection1">
-              </bar-chart>
-              <!-- <button @click="fillData()">Randomize</button> -->
-            </div>
-          </div>
         </div>
         <div class="viz-container viz-container-2">
           <div>
@@ -49,8 +38,13 @@
               </div>
           </div>
           <div>
-            <h5 class="viz-item>">Something</h5>
-            <div>chart here</div>
+            <h5 class="viz-item">Data tested</h5>
+            <div class="chart1">
+              <!-- <bar-chart :chartdata='dummyData' options=''></bar-chart> -->
+              <bar-chart :chart-data="datacollection1">
+              </bar-chart>
+              <!-- <button @click="fillData()">Randomize</button> -->
+            </div>
           </div>
         </div>
       </div>
@@ -232,6 +226,14 @@ h5 {
   padding-right: 20vh;
   padding-top: 40px;
 }
+
+.viz-container-1{
+  display: flex;
+  text-align:center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80vw;
+}
  .chart1, .chart2 {
     max-width: 100%;
     padding-top: 40px;
@@ -241,4 +243,8 @@ h5 {
   .viz-container-2{
     margin-top: 50px;
   }
+
+.map-item{
+  text-align: center;
+}
 </style>
