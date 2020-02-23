@@ -127,8 +127,8 @@ export default {
   //   this.geojson = await response.json();
 
     await fetch("../file.geojson")
-      .then(res => console.log(res.json()))
-      .then(data => console.log(res))
+      .then(res => console.log(res.body))
+      // .then(data => console.log(res))
 
   }
 }
