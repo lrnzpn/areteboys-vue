@@ -45,11 +45,13 @@
       </div>
       <div id="table">
         <h1>Raw Data</h1>
-        <button @click="openInputForm">Add Data</button>
+        <div class="table-btn">
+          <button @click="openInputForm">Add Data</button>
+        </div>
         <Form style="display:none;" formType="inputData" title="Input" v-on:postData="postForm" />
 
         <div class="table">
-          <b-table striped hover :items="tableData"></b-table>
+          <b-table striped hover small details-td-class tdClass :items="samples" :fields="fields"></b-table>
         </div>
       </div>
     </div>
@@ -68,16 +70,15 @@ export default {
       inProgress: 0,
       relevantSamples: 0,
       irrelevantSamples: 0,
-      tableData: [
-        {
-          // id date city province count(artifact) image description
-          location: "Manila",
-          city: "QC",
-          province: "QC",
-          date: "6/9/69",
-          imgFile: "",
-          description: "lorem ipsum blablabla"
-        }
+      fields: [
+        "id",
+        "municipality_city",
+        "region",
+        "sample_type",
+        "sample_description",
+        "in_lab",
+        "is_significant",
+        "photo_main_url"
       ],
       samples: []
     };
@@ -91,8 +92,7 @@ export default {
       document.getElementById("form-wrapper").style.display = "flex";
     },
     postForm(value) {
-      this.tableData = [...this.tableData, value];
-      console.log(this.tableData);
+      this.samples = [...this.samples, value];
     }
   },
   mounted() {
@@ -172,8 +172,15 @@ h5 {
 }
 
 .table {
-  width: 75vw;
+  width: 80vw;
   border: 2px solid #5aa8c8;
-  margin: 0 auto;
+}
+
+.table-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1%;
 }
 </style>
