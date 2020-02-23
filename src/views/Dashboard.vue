@@ -9,15 +9,15 @@
         </div>
         <div class="stat">
           <h5 class="stat-title">In Progress</h5>
-          <h5 class="stat-val">{{ inProgress }}</h5>
+          <h5 class="stat-val">4</h5>
         </div>
         <div class="stat">
           <h5 class="stat-title">Relevant Samples</h5>
-          <h5 class="stat-val">{{ relevantSamples }}</h5>
+          <h5 class="stat-val">2</h5>
         </div>
         <div class="stat">
           <h5 class="stat-title">Irrelevant Samples</h5>
-          <h5 class="stat-val">{{ irrelevantSamples }}</h5>
+          <h5 class="stat-val">3</h5>
         </div>
       </div>
       <div id="viz">
@@ -48,6 +48,17 @@
           </div>
         </div>
       </div>
+      <div id="table">
+        <h1>Raw Data</h1>
+        <div class="table-btn">
+          <button @click="openInputForm">Add Data</button>
+        </div>
+        <Form style="display:none;" formType="inputData" title="Input" v-on:postData="postForm" />
+
+        <div class="table">
+          <b-table striped hover small details-td-class tdClass :items="samples" :fields="fields"></b-table>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -60,6 +71,8 @@ import LineChart from '../components/LineChart.vue'
 import moment from 'moment'
 
 import 'moment'
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -71,9 +84,19 @@ export default {
       irrelevantSamples: 0,
       top5artifacts: ['test','test','test','test','test'],
       months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September','October','November','December'],
+      fields: [
+        "id",
+        "municipality_city",
+        "region",
+        "sample_type",
+        "sample_description",
+        "in_lab",
+        "is_significant",
+        "photo_main_url"
+      ],
+      samples: []
     };
   },
-
   components: {
     Form,
     MapLeaf: Map,
@@ -84,6 +107,12 @@ export default {
       this.fillData()
     },
     methods: {
+       openInputForm() {
+      document.getElementById("form-wrapper").style.display = "flex";
+    },
+    postForm(value) {
+      this.samples = [...this.samples, value];
+    },
         // add(event){
         //     let current = moment()                  
         // },
@@ -163,9 +192,41 @@ labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August
       },
       getRandomInt () {
         return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+      },
+  mounted() {
+    const config = {
+      headers: {
+        Accept: "application/json"
       }
-    }
-};
+    };
+    axios
+      .get("http://0.0.0.0:8000/samples/api/samples/", config)
+      .then(res => {
+        this.samples = res.data;
+        console.log(this.samples);
+        this.samplesSubmitted = this.samples.length;
+
+        let count1 = 0;
+        let count2 = 0;
+
+        for (let i = 0; i < this.samplesSubmitted; i++) {
+          if (samples[i].in_lab === true) {
+            count1++;
+          }
+
+          if (samples[i].is_significant === true) {
+            count2++;
+          }
+        }
+
+        this.inProgress = count1;
+        this.isSignificant = count2;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+}};
 </script>
 
 <style scoped lang="scss">
@@ -180,6 +241,7 @@ h1 {
 h5 {
   color: #5aa8c8;
 }
+
 #dashboard {
   font-family: "Source Sans Pro";
   margin-left: 17vw;
@@ -247,5 +309,18 @@ h5 {
 
 .map-item{
   text-align: center;
+}
+
+.table {
+  width: 80vw;
+  border: 2px solid #5aa8c8;
+}
+
+.table-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1%;
 }
 </style>
