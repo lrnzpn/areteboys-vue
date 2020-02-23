@@ -175,6 +175,7 @@ h5 {
 
 h1 {
   color: $dashboard-heading;
+  padding-right: 85px;
 }
 h5 {
   color: #5aa8c8;
