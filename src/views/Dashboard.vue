@@ -76,7 +76,7 @@ export default {
       relevantSamples: 0,
       irrelevantSamples: 0,
       top5artifacts: ['test','test','test','test','test'],
-      months: [1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987],
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September','October','November','December'],
     };
   },
 
