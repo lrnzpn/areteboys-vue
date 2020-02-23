@@ -72,6 +72,7 @@ import LineChart from '../components/LineChart.vue'
 import moment from 'moment'
 
 import 'moment'
+
 export default {
   data() {
     return {
@@ -81,6 +82,8 @@ export default {
       inProgress: 0,
       relevantSamples: 0,
       irrelevantSamples: 0,
+      top5artifacts: ['test','test','test','test','test'],
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September','October','November','December'],
       fields: [
         "id",
         "municipality_city",
@@ -148,6 +151,12 @@ export default {
       this.fillData()
     },
     methods: {
+       openInputForm() {
+      document.getElementById("form-wrapper").style.display = "flex";
+    },
+    postForm(value) {
+      this.samples = [...this.samples, value];
+    },
         // add(event){
         //     let current = moment()                  
         // },
@@ -227,9 +236,41 @@ labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August
       },
       getRandomInt () {
         return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+      },
+  mounted() {
+    const config = {
+      headers: {
+        Accept: "application/json"
       }
-    }
-};
+    };
+    axios
+      .get("http://0.0.0.0:8000/samples/api/samples/", config)
+      .then(res => {
+        this.samples = res.data;
+        console.log(this.samples);
+        this.samplesSubmitted = this.samples.length;
+
+        let count1 = 0;
+        let count2 = 0;
+
+        for (let i = 0; i < this.samplesSubmitted; i++) {
+          if (samples[i].in_lab === true) {
+            count1++;
+          }
+
+          if (samples[i].is_significant === true) {
+            count2++;
+          }
+        }
+
+        this.inProgress = count1;
+        this.isSignificant = count2;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+}};
 </script>
 
 <style scoped lang="scss">
