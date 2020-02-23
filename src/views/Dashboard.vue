@@ -26,6 +26,8 @@
           <div>
             <h5 class="viz-item">Interactive map</h5>
 <MapLeaf />
+<!-- <iframe src="../Quick-Start-Leaflet-2.html" width="400" height="400"></iframe> -->
+<!-- <my-map /> -->
           </div>
           <div>
             <h5 class="viz-item">Data tested</h5>
@@ -82,7 +84,7 @@ export default {
     Form,
     MapLeaf: Map,
     BarChart,
-    LineChart
+    LineChart,
   },
       mounted () {
       this.fillData()
