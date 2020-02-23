@@ -360,6 +360,9 @@ h5 {
   border: 2px solid #5aa8c8;
 }
 
+#table{
+  margin-top: 100px;
+}
 .table-btn {
   display: flex;
   justify-content: flex-start;
