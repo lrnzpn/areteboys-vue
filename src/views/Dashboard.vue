@@ -9,15 +9,15 @@
         </div>
         <div class="stat">
           <h5 class="stat-title">In Progress</h5>
-          <h5 class="stat-val">{{ inProgress }}</h5>
+          <h5 class="stat-val">4</h5>
         </div>
         <div class="stat">
           <h5 class="stat-title">Relevant Samples</h5>
-          <h5 class="stat-val">{{ relevantSamples }}</h5>
+          <h5 class="stat-val">2</h5>
         </div>
         <div class="stat">
           <h5 class="stat-title">Irrelevant Samples</h5>
-          <h5 class="stat-val">{{ irrelevantSamples }}</h5>
+          <h5 class="stat-val">3</h5>
         </div>
       </div>
       <div id="viz">
@@ -106,6 +106,23 @@ export default {
       .then(res => {
         this.samples = res.data;
         console.log(this.samples);
+        this.samplesSubmitted = this.samples.length;
+
+        let count1 = 0;
+        let count2 = 0;
+
+        for (let i = 0; i < this.samplesSubmitted; i++) {
+          if (samples[i].in_lab === true) {
+            count1++;
+          }
+
+          if (samples[i].is_significant === true) {
+            count2++;
+          }
+        }
+
+        this.inProgress = count1;
+        this.isSignificant = count2;
       })
       .catch(err => {
         console.log(err);
